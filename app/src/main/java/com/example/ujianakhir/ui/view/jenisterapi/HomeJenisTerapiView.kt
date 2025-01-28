@@ -107,7 +107,7 @@ fun HomeJenisTerapiScreen(
             modifier = Modifier.padding(innerPadding),
             ondetailClick = ondetailClick,
             ondeleteClick = {
-                viewModel.deleteJenisTerapi(it.idJenisTerapi)
+                viewModel.deleteJenisTerapi(it.id_jenisterapi)
                 viewModel.getJenisTerapi()
             }
         )
@@ -131,13 +131,13 @@ fun HomeStatusJenisTerapi(
         is HomeJenisTerapiUiState.Success ->
             if (homeJenisTerapiUiState.jenisterapi.isEmpty()){
                 return Box(modifier = modifier.fillMaxSize(), contentAlignment = Alignment.Center){
-                    Text(text = "Tidak ada data Kontak")
+                    Text(text = "Tidak ada data")
                 }
             }else{
                 JenisTerapiLayout(
                     jenisterapi = homeJenisTerapiUiState.jenisterapi, modifier = modifier.fillMaxWidth(),
                     ondetailClick = {
-                        ondetailClick(it.idJenisTerapi)
+                        ondetailClick(it.id_jenisterapi)
                     },
                     ondeleteClick = {
                         ondeleteClick(it)
@@ -222,7 +222,7 @@ fun JenisTerapiCard(
                 verticalAlignment = Alignment.CenterVertically
             ){
                 Text(
-                    text = jenisterapi.namaJenisTerapi,
+                    text = jenisterapi.nama_jenis_terapi,
                     style = MaterialTheme.typography.titleLarge,
                 )
                 Spacer(Modifier.weight(1f))
@@ -234,7 +234,7 @@ fun JenisTerapiCard(
                 }
 
                 Text(
-                    text = jenisterapi.deskripsiTerapi,
+                    text = jenisterapi.deskripsi_terapi,
                     style = MaterialTheme.typography.titleMedium
                 )
             }

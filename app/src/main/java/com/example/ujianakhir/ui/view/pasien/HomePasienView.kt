@@ -1,6 +1,7 @@
 package com.example.ujianakhir.ui.view.pasien
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -127,8 +128,8 @@ fun HomePasienScreen(
             modifier = Modifier.padding(innerPadding),
             ondetailClick = ondetailClick,
             ondeleteClick = {
-                it.idPasien?.let { id ->
-                    viewModel.deletePasien(it.idPasien)
+                it.id_pasien?.let { id ->
+                    viewModel.deletePasien(it.id_pasien)
                     viewModel.getPasien()
                     //viewModel.insertPasien()
                 }
@@ -158,7 +159,7 @@ fun HomePasienStatus(
                     pasien = homePasienUiState.pasien,
                     modifier = modifier.fillMaxWidth(),
                     ondetailClick = {
-                        ondetailClick(it)
+                        ondetailClick(it.id_pasien)
                     },
                     ondeleteClick = {
                         ondeleteClick(it)
@@ -200,7 +201,7 @@ fun OnError(retryAction: () -> Unit, modifier: Modifier = Modifier) {
 fun PasienLayout(
     pasien: List<Pasien>,
     modifier: Modifier = Modifier,
-    ondetailClick: (Int) -> Unit,
+    ondetailClick: (Pasien) -> Unit,
     ondeleteClick: (Pasien) -> Unit = {}
 ) {
     LazyColumn(
@@ -212,8 +213,8 @@ fun PasienLayout(
             PasienCard(
                 pasien = pasienItem,
                 modifier = Modifier
-                    .fillMaxWidth(),
-                ondetailClick = ondetailClick,
+                    .fillMaxWidth()
+                .clickable {ondetailClick(pasienItem)},
                 ondeleteClick = {
                     ondeleteClick(pasienItem)
                 }
@@ -227,7 +228,7 @@ fun PasienCard(
     pasien: Pasien,
     modifier: Modifier = Modifier,
     ondeleteClick: (Pasien) -> Unit = {},
-    ondetailClick: (Int) -> Unit
+
 ) {
     Card(
         modifier = modifier,
@@ -243,7 +244,7 @@ fun PasienCard(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = pasien.namaPasien,
+                    text = pasien.nama_pasien,
                     style = MaterialTheme.typography.titleLarge,
                 )
                 Spacer(Modifier.weight(1f))
@@ -260,7 +261,7 @@ fun PasienCard(
                 style = MaterialTheme.typography.titleMedium
             )
             Text(
-                text = pasien.nomorTelepon,
+                text = pasien.no_telepon,
                 style = MaterialTheme.typography.titleMedium
             )
         }

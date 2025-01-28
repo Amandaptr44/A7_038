@@ -22,16 +22,16 @@ interface SesiTerapiRepository {
             sesiterapiApiService.insertSesiTerapi(sesiTerapi)
         }
 
-        override suspend fun updateSesiTerapi(idSesiTerapi: Int, sesiTerapi: SesiTerapi) {
-            sesiterapiApiService.updateSesiTerapi(idSesiTerapi, sesiTerapi)
+        override suspend fun updateSesiTerapi(id_sesi: Int, sesiTerapi: SesiTerapi) {
+            sesiterapiApiService.updateSesiTerapi(id_sesi, sesiTerapi)
         }
 
         override suspend fun getSesiTerapi(): List<SesiTerapi> =
             sesiterapiApiService.getAllSesiTerapi()
 
-        override suspend fun deleteSesiTerapi(idSesiTerapi: Int) {
+        override suspend fun deleteSesiTerapi(id_sesi: Int) {
             try {
-                val response = sesiterapiApiService.deleteSesiTerapi(idSesiTerapi)
+                val response = sesiterapiApiService.deleteSesiTerapi(id_sesi)
                 if (!response.isSuccessful) {
                     throw IOException(
                         "Failed to delete terapis. HTTP Status code:" +

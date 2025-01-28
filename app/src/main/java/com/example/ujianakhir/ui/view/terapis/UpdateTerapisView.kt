@@ -22,12 +22,12 @@ import kotlinx.coroutines.withContext
 object DestinasiTerapisUpdate: DestinasiNavigasi {
     override val route = "updateTerapis"
     override val titleRes = "Update Terapis"
-    const val ID_TERAPIS = "IdTerapis"
+    const val ID_TERAPIS = "Id_terapis"
     val routesWithArg = "$route/{$ID_TERAPIS}"
 }
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun UpdateTerapisScreen(
+fun DestinasiTerapisUpdate(
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
     onNavigate:()-> Unit,

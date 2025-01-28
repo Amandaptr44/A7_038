@@ -8,9 +8,9 @@ interface JenisTerapiRepository {
 
     suspend fun insertJenisTerapi(jenisTerapi: Jenisterapi)
     suspend fun getJenisTerapi(): List<Jenisterapi>
-    suspend fun updateJenisTerapi(idJenisTerapi: Int, jenisTerapi: Jenisterapi)
-    suspend fun deleteJenisTerapi(idJenisTerapi: Int)
-    suspend fun getJenisTerapiById(idJenisTerapi: Int): Jenisterapi
+    suspend fun updateJenisTerapi(id_jenisterapi: Int, jenisTerapi: Jenisterapi)
+    suspend fun deleteJenisTerapi(id_jenisterapi: Int)
+    suspend fun getJenisTerapiById(id_jenisterapi: Int): Jenisterapi
 
     class NetworkJenisTerapiRepository(
         private val jenisterapiApiService: JenisTerapiService
@@ -20,16 +20,16 @@ interface JenisTerapiRepository {
             jenisterapiApiService.insertJenisTerapi(jenisTerapi)
         }
 
-        override suspend fun updateJenisTerapi(idJenisTerapi: Int, jenisTerapi: Jenisterapi) {
-            jenisterapiApiService.updateJenisTerapi(idJenisTerapi, jenisTerapi)
+        override suspend fun updateJenisTerapi(id_jenisterapi: Int, jenisTerapi: Jenisterapi) {
+            jenisterapiApiService.updateJenisTerapi(id_jenisterapi, jenisTerapi)
         }
 
         override suspend fun getJenisTerapi(): List<Jenisterapi> =
             jenisterapiApiService.getAllJenisTerapi()
 
-        override suspend fun deleteJenisTerapi(idJenisTerapi: Int) {
+        override suspend fun deleteJenisTerapi(id_jenisterapi: Int) {
             try {
-                val response = jenisterapiApiService.deleteJenisTerapi(idJenisTerapi)
+                val response = jenisterapiApiService.deleteJenisTerapi(id_jenisterapi)
                 if (!response.isSuccessful) {
                     throw IOException(
                         "Failed to delete jenisterapi. HTTP Status code:" +
@@ -44,8 +44,8 @@ interface JenisTerapiRepository {
             }
         }
 
-        override suspend fun getJenisTerapiById(idJenisTerapi: Int): Jenisterapi {
-            return jenisterapiApiService.getJenisTerapiById(idJenisTerapi)
+        override suspend fun getJenisTerapiById(id_jenis_terapi: Int): Jenisterapi {
+            return jenisterapiApiService.getJenisTerapiById(id_jenis_terapi)
         }
     }
 }

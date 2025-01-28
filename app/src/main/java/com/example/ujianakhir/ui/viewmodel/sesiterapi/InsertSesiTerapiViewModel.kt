@@ -35,21 +35,21 @@ data class InsertSesiTerapiUiState(
 )
 
 data class InsertSesiTerapiUiEvent(
-    val idSesiTerapi: Int = 0,
-    val idPasien: Int = 0,
-    val idTerapis: Int = 0,
-    val idJenisTerapi: Int = 0,
-    val tanggalsesi: String = "",
-    val catatansesi: String = "",
+    val id_sesi: Int = 0,
+    val id_pasien: Int = 0,
+    val id_terapis: Int = 0,
+    val id_jenis_terapi: Int = 0,
+    val tanggal_sesi: String = "",
+    val catatan_sesi: String = "",
 )
 
 fun InsertSesiTerapiUiEvent.toSesiTerapi(): SesiTerapi = SesiTerapi(
-    idSesiTerapi = idSesiTerapi,
-    idPasien = idPasien,
-    idTerapis = idTerapis,
-    idJenisTerapi = idJenisTerapi,
-    tanggalsesi = tanggalsesi,
-    catatansesi = catatansesi,
+    id_sesi = id_sesi,
+    id_pasien = id_pasien,
+    id_terapis = id_terapis,
+    id_jenis_terapi = id_jenis_terapi,
+    tanggal_sesi = tanggal_sesi,
+    catatan_sesi = catatan_sesi,
 )
 
 fun SesiTerapi.toSesiTerapiUiState():InsertSesiTerapiUiState = InsertSesiTerapiUiState(
@@ -57,11 +57,11 @@ fun SesiTerapi.toSesiTerapiUiState():InsertSesiTerapiUiState = InsertSesiTerapiU
 )
 
 fun SesiTerapi.toInsertSesiTerapiUiEvent():InsertSesiTerapiUiEvent = InsertSesiTerapiUiEvent(
-    idSesiTerapi = idSesiTerapi,
-    idPasien = idPasien,
-    idTerapis = idTerapis,
-    idJenisTerapi = idJenisTerapi,
-    tanggalsesi = tanggalsesi,
-    catatansesi = catatansesi,
+    id_sesi = id_sesi,
+    id_pasien = id_pasien,
+    id_terapis = id_terapis,
+    id_jenis_terapi = id_jenis_terapi,
+    tanggal_sesi = tanggal_sesi,
+    catatan_sesi = catatan_sesi,
 )
 

@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Divider
@@ -19,16 +18,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
-import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.ujianakhir.ui.costumwidget.CostumeTopAppBar
 import com.example.ujianakhir.ui.navigation.DestinasiNavigasi
-import com.example.ujianakhir.ui.view.pasien.FormInput
 import com.example.ujianakhir.ui.viewmodel.PenyediaViewModel
-import com.example.ujianakhir.ui.viewmodel.jenisterapi.InsertJenisTerapiUiEvent
-import com.example.ujianakhir.ui.viewmodel.jenisterapi.InsertJenisTerapiUiState
-import com.example.ujianakhir.ui.viewmodel.jenisterapi.InsertJenisTerapiViewModel
 import com.example.ujianakhir.ui.viewmodel.sesiterapi.InsertSesiTerapiUiEvent
 import com.example.ujianakhir.ui.viewmodel.sesiterapi.InsertSesiTerapiUiState
 import com.example.ujianakhir.ui.viewmodel.sesiterapi.InsertSesiTerapiViewModel
@@ -81,7 +75,7 @@ fun EntrySesiTerapiScreen(
 fun EntryBodySesiTerapi(
     insertSesiTerapiUiState: InsertSesiTerapiUiState,
     onValueChange: (InsertSesiTerapiUiEvent) -> Unit,
-    onSaveClick:() -> Unit,
+    onSaveClick: () -> Unit,
     modifier: Modifier = Modifier
 ){
     Column (
@@ -116,16 +110,16 @@ fun FormInputSesiTerapi(
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ){
         OutlinedTextField(
-            value = insertSesiTerapiUiEvent.tanggalsesi,
-            onValueChange = {onValueChange(insertSesiTerapiUiEvent.copy(tanggalsesi = it))},
+            value = insertSesiTerapiUiEvent.tanggal_sesi,
+            onValueChange = {onValueChange(insertSesiTerapiUiEvent.copy(tanggal_sesi = it))},
             label = { Text("Tanggal Sesi Terapi") },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
             singleLine = true
         )
         OutlinedTextField(
-            value = insertSesiTerapiUiEvent.catatansesi,
-            onValueChange = {onValueChange(insertSesiTerapiUiEvent.copy(catatansesi = it))},
+            value = insertSesiTerapiUiEvent.catatan_sesi,
+            onValueChange = {onValueChange(insertSesiTerapiUiEvent.copy(catatan_sesi = it))},
             label = { Text("Catatan Sesi Terapi") },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,

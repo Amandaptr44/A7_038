@@ -74,15 +74,6 @@ fun HomeSesiTerapiScreen(
                 }
             )
         },
-        floatingActionButton = {
-            FloatingActionButton(
-                onClick = navigateToItemEntrySesiTerapi,
-                shape = MaterialTheme.shapes.medium,
-                modifier = Modifier.padding(18.dp)
-            ){
-                Icon(imageVector = Icons.Default.Add, contentDescription = "Add Sesi Terapi")
-            }
-        },
 
         bottomBar = {
             BottomAppBar(
@@ -115,7 +106,7 @@ fun HomeSesiTerapiScreen(
             modifier = Modifier.padding(innerPadding),
             ondetailClick = ondetailClick,
             ondeleteClick = {
-                viewModel.deleteSesiTerapi(it.idSesiTerapi)
+                viewModel.deleteSesiTerapi(it.id_sesi)
                 viewModel.getSesiTerapi()
             }
         )
@@ -143,7 +134,7 @@ fun HomeStatusSesiTerapi(
                 SesiTerapiLayout(
                     sesiterapi = homeSesiTerapiUiState.sesiTerapi, modifier = modifier.fillMaxWidth(),
                     ondetailClick = {
-                        ondetailClick(it.idSesiTerapi)
+                        ondetailClick(it.id_sesi)
                     },
                     ondeleteClick = {
                         ondeleteClick(it)
@@ -228,7 +219,7 @@ fun SesiTerapiCard(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = sesiterapi.tanggalsesi,
+                    text = sesiterapi.tanggal_sesi,
                     style = MaterialTheme.typography.titleLarge,
                 )
                 Spacer(Modifier.weight(1f))
@@ -240,7 +231,7 @@ fun SesiTerapiCard(
                 }
 
                 Text(
-                    text = sesiterapi.catatansesi,
+                    text = sesiterapi.catatan_sesi,
                     style = MaterialTheme.typography.titleMedium
                 )
             }

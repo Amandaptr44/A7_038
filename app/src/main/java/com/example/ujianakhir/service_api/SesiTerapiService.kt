@@ -17,21 +17,21 @@ interface SesiTerapiService {
         "Content-Type: application/json",
     )
 
-    @POST("insertsesiterapi.php")
+    @POST("sesiterapiinsert.php")
     suspend fun insertSesiTerapi(@Body sesiTerapi: SesiTerapi)
 
-    @GET("readsesiterapi.php")
+    @GET("sesiterapiread.php")
     //@GET(".")
     suspend fun getAllSesiTerapi():  List<SesiTerapi>
 
-    @GET("detailsesiterapi.php/{id_sesiterspi}")
+    @GET("sesiterapidetail.php/{id_sesiterspi}")
     suspend fun getSesiTerapiById(@Query("id_sesiterapi") idSesiTerapi: Int): SesiTerapi
 
-    @PUT("editsesiterapi.php/{id_sesiterapi}")
+    @PUT("sesiterapiedit.php/{id_sesiterapi}")
     //@PUT("{id_pasien}")
     suspend fun updateSesiTerapi(@Query("id_sesiterapi") idSesiTerapi: Int, @Body sesiTerapi: SesiTerapi)
 
-    @DELETE("deletesesiterapi.php/{id_sesiterapi}")
+    @DELETE("sesiterapidelete.php/{id_sesiterapi}")
     //@DELETE("{id_pasien}")
     suspend fun deleteSesiTerapi(@Query("id_sesiterapi") idSesiTerapi: Int): Response<Void>
 }

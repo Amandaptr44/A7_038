@@ -17,7 +17,7 @@ interface PasienRepository {
     ) : PasienRepository {
 
         override suspend fun insertPasien(pasien: Pasien) {
-            pasienApiService.insertPasien(pasien)
+            val response = pasienApiService.insertPasien(pasien)
         }
 
         override suspend fun updatePasien(idPasien: Int, pasien: Pasien) {

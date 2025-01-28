@@ -1,23 +1,22 @@
 package com.example.ujianakhir.model
 
-import androidx.room.Entity
-import androidx.room.ForeignKey
-import androidx.room.PrimaryKey
+import kotlinx.serialization.Serializable
 
-@Entity(
-    tableName = "sesiterapi",
-    foreignKeys = [
-        ForeignKey(entity = Pasien::class, parentColumns = ["id"], childColumns = ["pasienId"]),
-        ForeignKey(entity = Terapis::class, parentColumns = ["id"], childColumns = ["terapisId"]),
-        ForeignKey(entity = Jenisterapi::class, parentColumns = ["id"], childColumns = ["jenisterapiId"])
-    ]
-)
+@Serializable
 data class SesiTerapi(
-    @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    val idSesiTerapi: Int,
-    val idPasien: Int,
-    val idTerapis: Int,
-    val idJenisTerapi: Int,
-    val tanggalsesi: String,
-    val catatansesi: String
+
+    val id_sesi: Int,
+
+    val id_pasien: Int,
+
+    val id_terapis: Int,
+
+    val id_jenis_terapi: Int,
+
+    val tanggal_sesi: String,
+
+    val catatan_sesi: String
 )
+
+
+

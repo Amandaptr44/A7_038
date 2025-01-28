@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ujianakhir.Repository.PasienRepository
 import com.example.ujianakhir.model.Pasien
+import com.example.ujianakhir.model.PasienSesiTerapi
 import kotlinx.coroutines.launch
 
 class InsertPasienViewModel (private val pasienRepository: PasienRepository): ViewModel(){
@@ -33,21 +34,21 @@ data class InsertUiState(
 )
 
 data class InsertUiEvent(
-    val idPasien: Int = 0,
-    val namaPasien: String = "",
+    val id_pasien: Int = 0,
+    val nama_pasien: String = "",
     val alamat: String = "",
-    val nomorTelepon: String = "",
-    val tanggalLahir: String = "",
-    val riwayatMedikal: String = "",
+    val no_telepon: String = "",
+    val tanggal_lahir: String = "",
+    val riwayat_medikal: String = "",
 )
 
 fun InsertUiEvent.toPasien(): Pasien = Pasien(
-    idPasien = idPasien,
-    namaPasien = namaPasien,
+    id_pasien = id_pasien,
+    nama_pasien = nama_pasien,
     alamat = alamat,
-    nomorTelepon = nomorTelepon,
-    tanggalLahir = tanggalLahir,
-    riwayatMedikal = riwayatMedikal
+    no_telepon = no_telepon,
+    tanggal_lahir = tanggal_lahir,
+    riwayat_medikal = riwayat_medikal
 )
 
 fun Pasien.toUiStatePasien():InsertUiState = InsertUiState(
@@ -55,11 +56,38 @@ fun Pasien.toUiStatePasien():InsertUiState = InsertUiState(
 )
 
 fun Pasien.toInsertUiEvent():InsertUiEvent = InsertUiEvent(
-    idPasien = idPasien,
-    namaPasien = namaPasien,
+    id_pasien = id_pasien,
+    nama_pasien = nama_pasien,
     alamat = alamat,
-    nomorTelepon = nomorTelepon,
-    tanggalLahir = tanggalLahir,
-    riwayatMedikal = riwayatMedikal
+    no_telepon = no_telepon,
+    tanggal_lahir = tanggal_lahir,
+    riwayat_medikal = riwayat_medikal
 )
+
+data class InsertPasienSesiUiState(
+    val insertPasienSesiUiEvent: InsertPasienSesiUiEvent = InsertPasienSesiUiEvent()
+)
+
+data class InsertPasienSesiUiEvent(
+    val nama_terapis: String = "",
+)
+
+fun InsertPasienSesiUiEvent.toPasienSesi(): PasienSesiTerapi = PasienSesiTerapi(
+    nama_terapis = nama_terapis,
+)
+
+fun PasienSesiTerapi.toUiStatePasienSesi():InsertPasienSesiUiState = InsertPasienSesiUiState(
+    insertPasienSesiUiEvent = toInsertPasienSesiUiEvent()
+)
+
+fun PasienSesiTerapi.toInsertPasienSesiUiEvent():InsertPasienSesiUiEvent = InsertPasienSesiUiEvent(
+    nama_terapis = nama_terapis,
+)
+
+
+
+
+
+
+
 

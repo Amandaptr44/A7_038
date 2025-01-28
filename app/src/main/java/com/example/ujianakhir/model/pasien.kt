@@ -7,20 +7,22 @@ import kotlinx.serialization.Serializable
 data class Pasien(
 
     @SerialName("id_pasien")
-    val idPasien: Int,
+    val id_pasien: Int,
 
     @SerialName("nama_pasien")
-    val namaPasien: String,
+    val nama_pasien: String,
 
     val alamat: String,
 
     @SerialName("no_telepon")
-    val nomorTelepon: String,
+    val no_telepon: String,
 
     @SerialName("tanggal_lahir")
-    val tanggalLahir: String,
+    val tanggal_lahir: String,
 
     @SerialName("riwayat_medikal")
-    val riwayatMedikal: String
+    val riwayat_medikal: String
 )
+
+
 

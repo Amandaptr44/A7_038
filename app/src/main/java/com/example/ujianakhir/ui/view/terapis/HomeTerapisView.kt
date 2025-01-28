@@ -105,7 +105,7 @@ fun HomeTerapisScreen(
             modifier = Modifier.padding(innerPadding),
             ondetailClick = ondetailClick,
             ondeleteClick = {
-                viewModel.deleteTerapis(it.idTerapis)
+                viewModel.deleteTerapis(it.id_terapis)
                 viewModel.getTerapis()
             }
         )
@@ -135,7 +135,7 @@ fun HomeStatusTerapis(
                 TerapisLayout(
                     terapis = homeTerapisUiState.terapis, modifier = modifier.fillMaxWidth(),
                     ondetailClick = {
-                        ondetailClick(it.idTerapis)
+                        ondetailClick(it.id_terapis)
                     },
                     ondeleteClick = {
                         ondeleteClick(it)
@@ -220,7 +220,7 @@ fun TerapisCard(
                 verticalAlignment = Alignment.CenterVertically
             ){
                 Text(
-                    text = terapis.namaTerapis,
+                    text = terapis.nama_terapis,
                     style = MaterialTheme.typography.titleLarge,
                 )
                 Spacer(Modifier.weight(1f))
@@ -238,7 +238,7 @@ fun TerapisCard(
             }
 
             Text(
-                text = terapis.nomorIzin,
+                text = terapis.nomor_izin_praktik,
                 style = MaterialTheme.typography.titleMedium
             )
         }

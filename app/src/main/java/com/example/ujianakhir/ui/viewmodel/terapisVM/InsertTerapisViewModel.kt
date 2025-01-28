@@ -33,17 +33,17 @@ data class InsertTerapisUiState(
 )
 
 data class InsertTerapisUiEvent(
-    val idTerapis: Int = 0,
-    val namaTerapis: String = "",
+    val id_terapis: Int = 0,
+    val nama_terapis: String = "",
     val spesialisasi: String = "",
-    val nomorIzin: String = "",
+    val nomor_izin_praktik: String = "",
 )
 
 fun InsertTerapisUiEvent.toTerapis(): Terapis = Terapis(
-    idTerapis = idTerapis,
-    namaTerapis = namaTerapis,
+    id_terapis = id_terapis,
+    nama_terapis = nama_terapis,
     spesialisasi = spesialisasi,
-    nomorIzin = nomorIzin,
+    nomor_izin_praktik = nomor_izin_praktik,
 )
 
 fun Terapis.toTerapisUiState():InsertTerapisUiState = InsertTerapisUiState(
@@ -51,9 +51,9 @@ fun Terapis.toTerapisUiState():InsertTerapisUiState = InsertTerapisUiState(
 )
 
 fun Terapis.toInsertTerapisUiEvent():InsertTerapisUiEvent = InsertTerapisUiEvent(
-    idTerapis = idTerapis,
-    namaTerapis = namaTerapis,
+    id_terapis = id_terapis,
+    nama_terapis = nama_terapis,
     spesialisasi = spesialisasi,
-    nomorIzin = nomorIzin,
+    nomor_izin_praktik = nomor_izin_praktik,
 )
 

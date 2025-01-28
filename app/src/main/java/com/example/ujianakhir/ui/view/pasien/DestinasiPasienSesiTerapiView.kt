@@ -1,4 +1,4 @@
-package com.example.ujianakhir.ui.view.sesiterapi
+package com.example.ujianakhir.ui.view.pasien
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -12,25 +12,25 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.ujianakhir.ui.costumwidget.CostumeTopAppBar
 import com.example.ujianakhir.ui.navigation.DestinasiNavigasi
 import com.example.ujianakhir.ui.viewmodel.PenyediaViewModel
-import com.example.ujianakhir.ui.viewmodel.sesiterapi.UpdateSesiTerapiViewModel
+import com.example.ujianakhir.ui.viewmodel.pasienVM.UpdatePasienViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-object DestinasiSesiTerapiUpdate: DestinasiNavigasi {
-    override val route = "updateSesiTerapi"
-    override val titleRes = "Update SesiTerapi"
-    const val ID_SESITERAPI = "IdSesiTerapi"
-    val routesWithArg = "$route/{$ID_SESITERAPI}"
+object DestinasiPasienSesiTerapi: DestinasiNavigasi {
+    override val route = "update"
+    override val titleRes = "Update Pasien Sesi Terapi"
+    const val ID_PASIEN = "idPasien"
+    val routesWithArg = "$route/{$ID_PASIEN}"
 }
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun UpdateSesiTerapiScreen(
+fun DestinasiPasienSesiTerapi(
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
     onNavigate:()-> Unit,
-    viewModel: UpdateSesiTerapiViewModel = viewModel(factory = PenyediaViewModel.Factory)
+    viewModel: UpdatePasienViewModel = viewModel(factory = PenyediaViewModel.Factory)
 ){
     val coroutineScope = rememberCoroutineScope()
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
@@ -38,26 +38,26 @@ fun UpdateSesiTerapiScreen(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             CostumeTopAppBar(
-                title = DestinasiSesiTerapiUpdate.titleRes,
+                title = DestinasiPasienSesiTerapi.titleRes,
                 canNavigateBack = true,
                 scrollBehavior = scrollBehavior,
                 navigateUp = onBack,
             )
         }
     ){padding ->
-        EntryBodySesiTerapi(
-            insertSesiTerapiUiState = viewModel.updateSesiTerapiUiState,
-            onValueChange = viewModel::updateInsertSesiTerapiState,
+        EntryBody(
+            modifier = Modifier.padding(padding),
+            insertPasienUiState = viewModel.updateUiState,
+            onPasienValueChange = viewModel::updateInsertPasienState,
             onSaveClick = {
                 coroutineScope.launch {
-                    viewModel.updateSesiTerapi()
+                    viewModel.updatePasien()
                     delay(600)
                     withContext(Dispatchers.Main){
                         onNavigate()
                     }
                 }
-            },
-            modifier = Modifier.padding(padding)
+            }
         )
     }
 }

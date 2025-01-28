@@ -7,13 +7,13 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Jenisterapi(
     @SerialName("id_jenisterapi")
-    val idJenisTerapi: Int,
+    val id_jenisterapi: Int,
 
-    @SerialName("nama_jenis_terapis")
-    val namaJenisTerapi: String,
+    @SerialName("nama_jenis_terapi")
+    val nama_jenis_terapi: String,
 
     @SerialName("deskripsi_terapi")
-    val deskripsiTerapi: String,
+    val deskripsi_terapi: String,
 )
 
 

@@ -110,8 +110,8 @@ fun FormInput(
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ){
         OutlinedTextField(
-            value = insertTerapisUiEvent.namaTerapis,
-            onValueChange = {onTerapisValueChange(insertTerapisUiEvent.copy(namaTerapis = it))},
+            value = insertTerapisUiEvent.nama_terapis,
+            onValueChange = {onTerapisValueChange(insertTerapisUiEvent.copy(nama_terapis = it))},
             label = { Text("Nama Terapis") },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
@@ -126,9 +126,9 @@ fun FormInput(
             singleLine = true
         )
         OutlinedTextField(
-            value = insertTerapisUiEvent.nomorIzin,
-            onValueChange = {onTerapisValueChange(insertTerapisUiEvent.copy(nomorIzin = it))},
-            label = { Text("Nomor Izin") },
+            value = insertTerapisUiEvent.nomor_izin_praktik,
+            onValueChange = {onTerapisValueChange(insertTerapisUiEvent.copy(nomor_izin_praktik = it))},
+            label = { Text("Nomor Izin Praktik") },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
             singleLine = true

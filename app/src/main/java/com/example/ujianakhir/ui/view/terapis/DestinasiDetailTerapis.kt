@@ -1,18 +1,14 @@
-package com.example.ujianakhir.ui.view.pasien
+package com.example.ujianakhir.ui.view.terapis
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Edit
-import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -34,28 +30,27 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.ujianakhir.ui.navigation.DestinasiNavigasi
 import com.example.ujianakhir.ui.viewmodel.PenyediaViewModel
 import com.example.ujianakhir.ui.viewmodel.pasienVM.DetailPasienViewModel
+import com.example.ujianakhir.ui.viewmodel.terapisVM.DetailTerapisViewModel
 
-object DestinasiDetailPasien : DestinasiNavigasi {
-    override val route = "detail_pasien"
-    override val titleRes = "Detail Pasien"
-    const val ID_PASIEN = "id_pasien"
-    val routeWithArgs = "$route/{$ID_PASIEN}"
+object DestinasiDetailTerapis : DestinasiNavigasi {
+    override val route = "detail_terapis"
+    override val titleRes = "Detail Terapis"
+    const val ID_TERAPIS = "id_terapis"
+    val routeWithArgs = "$route/{$ID_TERAPIS}"
 }
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DetailPasienScreen(
-    id_pasien: Int,
+fun DetailTerapisScreen(
+    id_terapis: Int,
     onEditClick: (Int) -> Unit = { },
-    onAddClick: (Int) -> Unit = { },
     navigateBack: () -> Unit,
     onBackClick: () -> Unit = { },
-    onViewSessionsClick: () -> Unit ={},
     modifier: Modifier = Modifier,
-    viewModel: DetailPasienViewModel = viewModel(factory = PenyediaViewModel.Factory)
+    viewModel: DetailTerapisViewModel = viewModel(factory = PenyediaViewModel.Factory)
 ) {
-    val pasien = viewModel.uiState.detailUiEvent
-    LaunchedEffect(id_pasien) {
-        viewModel.fetchDetailPasien(id_pasien)
+    val terapis = viewModel.uiState.detailUiEventTerapis
+    LaunchedEffect(id_terapis) {
+        viewModel.fetchDetailTerapis(id_terapis)
     }
     val isLoading = viewModel.uiState.isLoading
     val isError = viewModel.uiState.isError
@@ -63,7 +58,7 @@ fun DetailPasienScreen(
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
-                title = { Text("Detail Pasien") },
+                title = { Text("Detail Terapis") },
                 navigationIcon = {
                     IconButton(onClick = { onBackClick() }) {
                         Icon(
@@ -75,25 +70,14 @@ fun DetailPasienScreen(
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors()
             )
         },
-
-
         floatingActionButton = {
             FloatingActionButton(
-                onClick = { onEditClick(pasien.id_pasien) },
+                onClick = { onEditClick(terapis.id_terapis) },
                 modifier = Modifier.padding(16.dp)
             ) {
-                Icon(imageVector = Icons.Filled.Edit, contentDescription = "Edit Pasien")
-            }
-
-            FloatingActionButton(
-                onClick = { onAddClick(pasien.id_pasien) },
-                modifier = Modifier.padding(horizontal = 16.dp, vertical = 80.dp)
-            ) {
-                Icon(imageVector = Icons.Default.Add, contentDescription = "Tambah Sesi Terapi")
+                Icon(imageVector = Icons.Filled.Edit, contentDescription = "Edit Terapis")
             }
         },
-
-
         content = { paddingValues ->
             Box(
                 modifier = Modifier
@@ -127,12 +111,10 @@ fun DetailPasienScreen(
                                 verticalArrangement = Arrangement.spacedBy(8.dp)
                             ) {
 
-                                Text(text = "Id: ${pasien.id_pasien}", style = MaterialTheme.typography.bodyLarge)
-                                Text(text = "Nama: ${pasien.nama_pasien}", style = MaterialTheme.typography.bodyLarge)
-                                Text(text = "Alamat: ${pasien.alamat}", style = MaterialTheme.typography.bodyLarge)
-                                Text(text = "Nomor Telepon: ${pasien.no_telepon}", style = MaterialTheme.typography.bodyLarge)
-                                Text(text = "Tanggal Lahir: ${pasien.tanggal_lahir}", style = MaterialTheme.typography.bodyLarge)
-                                Text(text = "Riwayat Medikal: ${pasien.riwayat_medikal}", style = MaterialTheme.typography.bodyLarge)
+                                Text(text = "Id: ${terapis.id_terapis}", style = MaterialTheme.typography.bodyLarge)
+                                Text(text = "Nama Terapis: ${terapis.nama_terapis}", style = MaterialTheme.typography.bodyLarge)
+                                Text(text = "Spesialisasi: ${terapis.spesialisasi}", style = MaterialTheme.typography.bodyLarge)
+                                Text(text = "Nomor Izin Praktik: ${terapis.nomor_izin_praktik}", style = MaterialTheme.typography.bodyLarge)
                             }
                         }
                     }

@@ -26,7 +26,7 @@ interface JenisTerapiService {
     suspend fun getJenisTerapiById(@retrofit2.http.Query("id_jenisterapi") idJenisTerapi: Int): Jenisterapi
 
     @PUT("jenisterapiedit.php/{id_jenisterapi}")
-    suspend fun updateJenisTerapi(@retrofit2.http.Query("id_jenis_terapi") idJenisTerapi: Int, @Body jenisterapi: Jenisterapi)
+    suspend fun updateJenisTerapi(@retrofit2.http.Query("id_jenisterapi") idJenisTerapi: Int, @Body jenisterapi: Jenisterapi)
 
     @DELETE("jenisterapidelete.php/{id_jenisterapi}")
     suspend fun deleteJenisTerapi(@retrofit2.http.Query("id_jenis_terapi") idJenisTerapi: Int): Response<Void>

@@ -15,11 +15,11 @@ class DetailPasienViewModel(private val pasienRepository: PasienRepository) : Vi
     var uiState by mutableStateOf(DetailUiStatePasien())
         private set
 
-    fun fetchDetailPasien(idPasien: Int ) {
+    fun fetchDetailPasien(id_pasien: Int ) {
         viewModelScope.launch {
             uiState = DetailUiStatePasien(isLoading = true)
             try {
-                val mahasiswa = pasienRepository.getPasienById(idPasien)
+                val mahasiswa = pasienRepository.getPasienById(id_pasien)
                 uiState = DetailUiStatePasien(detailUiEvent = mahasiswa.toDetailUiEvent())
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -42,11 +42,11 @@ data class DetailUiStatePasien(
 
 fun Pasien.toDetailUiEvent(): InsertUiEvent {
     return InsertUiEvent(
-        idPasien = idPasien,
-        namaPasien = namaPasien,
+        id_pasien = id_pasien,
+        nama_pasien = nama_pasien,
         alamat = alamat,
-        nomorTelepon = nomorTelepon,
-        tanggalLahir = tanggalLahir,
-        riwayatMedikal = riwayatMedikal
+        no_telepon = no_telepon,
+        tanggal_lahir = tanggal_lahir,
+        riwayat_medikal = riwayat_medikal
     )
 }

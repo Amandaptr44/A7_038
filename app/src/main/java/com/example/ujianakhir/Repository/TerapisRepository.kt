@@ -18,7 +18,7 @@ interface TerapisRepository {
     ) : TerapisRepository {
 
         override suspend fun insertTerapis(terapis: Terapis) {
-            terapisApiService.insertTerapis(terapis)
+            val response =terapisApiService.insertTerapis(terapis)
         }
 
         override suspend fun updateTerapis(idTerapis: Int, terapis: Terapis) {
