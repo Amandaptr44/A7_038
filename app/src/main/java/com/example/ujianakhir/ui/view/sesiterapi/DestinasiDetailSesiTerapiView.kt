@@ -114,7 +114,7 @@ fun DetailSesiTerapiScreen(
                                 Text(text = "Id: ${sesiTerapi.id_sesi}", style = MaterialTheme.typography.bodyLarge)
                                 Text(text = "Nama: ${sesiTerapi.id_pasien}", style = MaterialTheme.typography.bodyLarge)
                                 Text(text = "Alamat: ${sesiTerapi.id_terapis}", style = MaterialTheme.typography.bodyLarge)
-                                Text(text = "Nomor Telepon: ${sesiTerapi.id_jenis_terapi}", style = MaterialTheme.typography.bodyLarge)
+                                Text(text = "Nomor Telepon: ${sesiTerapi.id_jenisterapi}", style = MaterialTheme.typography.bodyLarge)
                                 Text(text = "Tanggal Lahir: ${sesiTerapi.tanggal_sesi}", style = MaterialTheme.typography.bodyLarge)
                                 Text(text = "Riwayat Medikal: ${sesiTerapi.catatan_sesi}", style = MaterialTheme.typography.bodyLarge)
                             }

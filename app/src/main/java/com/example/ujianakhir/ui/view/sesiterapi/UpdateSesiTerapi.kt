@@ -57,6 +57,10 @@ fun UpdateSesiTerapiScreen(
                     }
                 }
             },
+
+            pasienList = viewModel.pasienList,
+            terapisList = viewModel.terapisList,
+            jenisTerapiList = viewModel.jenisTerapiList,
             modifier = Modifier.padding(padding)
         )
     }

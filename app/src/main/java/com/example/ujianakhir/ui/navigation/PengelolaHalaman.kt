@@ -90,9 +90,9 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController(),
                     onEditClick = {
                         navController.navigate("${DestinasiPasienUpdate.route}/$it")
                     },
-//                  onAddClick = {
-//                      navController.navigate("${DestinasiPasienSesiTerapi.route}/$it")
-//                  },
+                  onAddClick = {
+                      navController.navigate("${DestinasiEntrySesiTerapi.route}/$it")
+                  },
                     navigateBack = {
                         navController.navigate(DestinasiPasienHome.route) {
                             popUpTo(DestinasiPasienHome.route) {
@@ -101,9 +101,9 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController(),
                     },
 
                     onBackClick = { navController.popBackStack() },
-                    onViewSessionsClick = {
-                        navController.navigate("${DestinasiEntrySesiTerapi.route}/$it")
-                    }
+//                    onViewSessionsClick = {
+//                        navController.navigate("${DestinasiEntrySesiTerapi.route}/$it")
+//                    }
                 )
             }
         }

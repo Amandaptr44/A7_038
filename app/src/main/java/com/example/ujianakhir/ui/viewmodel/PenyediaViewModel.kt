@@ -44,8 +44,16 @@ object PenyediaViewModel {
         initializer { UpdateJenisTerapiViewModel(createSavedStateHandle(), aplikasiPasien().container.jenisTerapiRepository) }
 
         initializer { HomeSesiTerapiViewModel(aplikasiPasien().container.sesiTerapiRepository) }
-        initializer { InsertSesiTerapiViewModel(aplikasiPasien().container.sesiTerapiRepository) }
-        initializer { UpdateSesiTerapiViewModel(createSavedStateHandle(), aplikasiPasien().container.sesiTerapiRepository) }
+        initializer { InsertSesiTerapiViewModel(
+            aplikasiPasien().container.sesiTerapiRepository,
+            aplikasiPasien().container.pasienRepository,
+            aplikasiPasien().container.terapisRepository,
+            aplikasiPasien().container.jenisTerapiRepository) }
+        initializer { UpdateSesiTerapiViewModel(createSavedStateHandle(), aplikasiPasien().container.sesiTerapiRepository,
+            aplikasiPasien().container.pasienRepository,
+            aplikasiPasien().container.terapisRepository,
+            aplikasiPasien().container.jenisTerapiRepository
+            ) }
         initializer { DetailSesiTerapiViewModel(aplikasiPasien().container.sesiTerapiRepository) }
     }
 }
