@@ -107,7 +107,7 @@ fun HomeJenisTerapiScreen(
             modifier = Modifier.padding(innerPadding),
             ondetailClick = ondetailClick,
             ondeleteClick = {
-                viewModel.deleteJenisTerapi(it.id_jenisterapi)
+                viewModel.deleteJenisTerapi(it.id_jenis_terapi)
                 viewModel.getJenisTerapi()
             }
         )
@@ -137,7 +137,7 @@ fun HomeStatusJenisTerapi(
                 JenisTerapiLayout(
                     jenisterapi = homeJenisTerapiUiState.jenisterapi, modifier = modifier.fillMaxWidth(),
                     ondetailClick = {
-                        ondetailClick(it.id_jenisterapi)
+                        ondetailClick(it.id_jenis_terapi)
                     },
                     ondeleteClick = {
                         ondeleteClick(it)

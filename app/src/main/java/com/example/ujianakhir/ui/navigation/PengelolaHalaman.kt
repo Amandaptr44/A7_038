@@ -58,8 +58,7 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController(),
                 navigateToItemEntrySesiTerapi = { navController.navigate(DestinasiSesiTerapiHome.route) },
                 ondetailClick = { id_pasien ->
                     navController.navigate("${DestinasiDetailPasien.route}/$id_pasien")
-//                    println("PengelolaHalaman: id_pasien = $id_pasien")
-//                    println("${DestinasiDetailPasien.route}")
+
                 }
             )
         }
@@ -91,7 +90,7 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController(),
                         navController.navigate("${DestinasiPasienUpdate.route}/$it")
                     },
                   onAddClick = {
-                      navController.navigate("${DestinasiEntrySesiTerapi.route}/$it")
+                      navController.navigate(DestinasiEntrySesiTerapi.route)
                   },
                     navigateBack = {
                         navController.navigate(DestinasiPasienHome.route) {

@@ -91,7 +91,7 @@ data class InsertSesiTerapiUiEvent(
     val id_sesi: Int = 0,
     val id_pasien: String = "",
     val id_terapis: String = "",
-    val id_jenisterapi: String = "",
+    val id_jenis_terapi: String = "",
     val tanggal_sesi: String = "",
     val catatan_sesi: String = "",
 )
@@ -100,7 +100,7 @@ fun InsertSesiTerapiUiEvent.toSesiTerapi(): SesiTerapi = SesiTerapi(
     id_sesi = id_sesi,
     id_pasien = id_pasien,
     id_terapis = id_terapis,
-    id_jenisterapi = id_jenisterapi,
+    id_jenis_terapi = id_jenis_terapi,
     tanggal_sesi = tanggal_sesi,
     catatan_sesi = catatan_sesi,
 )
@@ -113,8 +113,26 @@ fun SesiTerapi.toInsertSesiTerapiUiEvent():InsertSesiTerapiUiEvent = InsertSesiT
     id_sesi = id_sesi,
     id_pasien = id_pasien,
     id_terapis = id_terapis,
-    id_jenisterapi = id_jenisterapi,
+    id_jenis_terapi = id_jenis_terapi,
     tanggal_sesi = tanggal_sesi,
     catatan_sesi = catatan_sesi,
 )
+
+fun saveSesiTerapi(
+    id_pasien: Int,
+    id_terapis: Int,
+    id_jenis_terapi: Int,
+    tanggal_sesi: String,
+    catatan_sesi: String
+) {
+    // Create the new Sesi data
+    val newSesi = InsertSesiTerapiUiEvent(
+        id_pasien = id_pasien.toString(),
+        id_terapis = id_terapis.toString(),
+        id_jenis_terapi = id_jenis_terapi.toString(),
+        tanggal_sesi = tanggal_sesi,
+        catatan_sesi = catatan_sesi
+    )
+}
+
 

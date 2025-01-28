@@ -49,7 +49,7 @@ fun SesiTerapi.toDetailUiEventSesiTerapi(): InsertSesiTerapiUiEvent {
         id_sesi = id_sesi,
         id_pasien = id_pasien,
         id_terapis = id_terapis,
-        id_jenisterapi = id_jenisterapi,
+        id_jenis_terapi = id_jenis_terapi,
         tanggal_sesi = tanggal_sesi,
         catatan_sesi = catatan_sesi
     )

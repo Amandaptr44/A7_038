@@ -45,7 +45,7 @@ data class DetailUiStateJenisTerapi(
 
 fun Jenisterapi.toJenisTerapiDetailUiEvent(): InsertJenisTerapiUiEvent {
     return InsertJenisTerapiUiEvent(
-        id_jenisterapi = id_jenisterapi,
+        id_jenis_terapi = id_jenis_terapi,
         nama_jenis_terapi = nama_jenis_terapi,
         deskripsi_terapi = deskripsi_terapi,
     )

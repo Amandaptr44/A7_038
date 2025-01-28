@@ -49,6 +49,8 @@ import com.example.ujianakhir.ui.viewmodel.sesiterapi.HomeSesiTerapiViewModel
 object DestinasiSesiTerapiHome : DestinasiNavigasi {
     override val route = "homesesiterapi"
     override val titleRes = "Home Sesi Terapi"
+    const val ID_PASIEN = "id_pasien"
+    val routeWithArgs = "$route/{$ID_PASIEN}"
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

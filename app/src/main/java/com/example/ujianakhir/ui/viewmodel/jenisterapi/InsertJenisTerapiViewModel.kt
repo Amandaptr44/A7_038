@@ -33,13 +33,13 @@ data class InsertJenisTerapiUiState(
 )
 
 data class InsertJenisTerapiUiEvent(
-    val id_jenisterapi: Int = 0,
+    val id_jenis_terapi: Int = 0,
     val nama_jenis_terapi: String = "",
     val deskripsi_terapi: String = "",
 )
 
 fun InsertJenisTerapiUiEvent.toJenisTerapi(): Jenisterapi = Jenisterapi(
-    id_jenisterapi = id_jenisterapi,
+    id_jenis_terapi = id_jenis_terapi,
     nama_jenis_terapi = nama_jenis_terapi,
     deskripsi_terapi = deskripsi_terapi,
 )
@@ -49,7 +49,7 @@ fun Jenisterapi.toJenisTerapiUiState():InsertJenisTerapiUiState = InsertJenisTer
 )
 
 fun Jenisterapi.toInsertJenisTerapiUiEvent():InsertJenisTerapiUiEvent = InsertJenisTerapiUiEvent(
-    id_jenisterapi = id_jenisterapi,
+    id_jenis_terapi = id_jenis_terapi,
     nama_jenis_terapi = nama_jenis_terapi,
     deskripsi_terapi = deskripsi_terapi,
 )

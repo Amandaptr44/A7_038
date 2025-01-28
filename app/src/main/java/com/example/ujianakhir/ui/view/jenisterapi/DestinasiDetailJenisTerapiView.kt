@@ -72,7 +72,7 @@ fun DetailJenisTerapiScreen(
         },
         floatingActionButton = {
             FloatingActionButton(
-                onClick = { onEditClick(jenisterapi.id_jenisterapi) },
+                onClick = { onEditClick(jenisterapi.id_jenis_terapi) },
                 modifier = Modifier.padding(16.dp)
             ) {
                 Icon(imageVector = Icons.Filled.Edit, contentDescription = "Edit Jenis Terapi")
@@ -111,7 +111,7 @@ fun DetailJenisTerapiScreen(
                                 verticalArrangement = Arrangement.spacedBy(8.dp)
                             ) {
 
-                                Text(text = "Id: ${jenisterapi.id_jenisterapi}", style = MaterialTheme.typography.bodyLarge)
+                                Text(text = "Id: ${jenisterapi.id_jenis_terapi}", style = MaterialTheme.typography.bodyLarge)
                                 Text(text = "Nama Jenis Terapi: ${jenisterapi.nama_jenis_terapi}", style = MaterialTheme.typography.bodyLarge)
                                 Text(text = "Deskripsi Terapi: ${jenisterapi.deskripsi_terapi}", style = MaterialTheme.typography.bodyLarge)
                             }

@@ -46,7 +46,7 @@ object DestinasiDetailPasien : DestinasiNavigasi {
 fun DetailPasienScreen(
     id_pasien: Int,
     onEditClick: (Int) -> Unit = { },
-    onAddClick: (Int) -> Unit = { },
+    onAddClick: () -> Unit = { },
     navigateBack: () -> Unit,
     onBackClick: () -> Unit = { },
     onViewSessionsClick: () -> Unit ={},
@@ -86,7 +86,7 @@ fun DetailPasienScreen(
             }
 
             FloatingActionButton(
-                onClick = { onAddClick(pasien.id_pasien) },
+                onClick = { onAddClick() }, // Hapus parameter pasien.id_pasien
                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 80.dp)
             ) {
                 Icon(imageVector = Icons.Default.Add, contentDescription = "Tambah Sesi Terapi")

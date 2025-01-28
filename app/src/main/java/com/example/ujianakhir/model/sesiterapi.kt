@@ -11,7 +11,7 @@ data class SesiTerapi(
 
     val id_terapis: String,
 
-    val id_jenisterapi: String,
+    val id_jenis_terapi: String,
 
     val tanggal_sesi: String,
 

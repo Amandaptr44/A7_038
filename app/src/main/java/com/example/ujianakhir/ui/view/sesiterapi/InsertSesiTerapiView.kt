@@ -146,10 +146,10 @@ fun FormInputSesiTerapi(
 
         // Dropdown untuk ID Jenis Terapi
         DynamicSelectTextField(
-            selectedValue = insertSesiTerapiUiEvent.id_jenisterapi,
-            options = jenisTerapiList.map { it.id_jenisterapi.toString() },
+            selectedValue = insertSesiTerapiUiEvent.id_jenis_terapi,
+            options = jenisTerapiList.map { it.id_jenis_terapi.toString() },
             label = "Pilih Jenis Terapi",
-            onValueChangedEvent = { onValueChange(insertSesiTerapiUiEvent.copy(id_jenisterapi = it)) },
+            onValueChangedEvent = { onValueChange(insertSesiTerapiUiEvent.copy(id_jenis_terapi = it)) },
             modifier = Modifier.fillMaxWidth()
         )
 
